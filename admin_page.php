@@ -31,6 +31,30 @@ $result = $conn->query($sql);
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logout-btn {
+            padding: 12px 24px;
+            background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .logout-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 126, 95, 0.4);
+        }
+
         .users-table {
             width: 100%;
             border-collapse: collapse;
@@ -164,7 +188,10 @@ $result = $conn->query($sql);
 </head>
 <body>
     <div class="dashboard">
-        <h1>Admin Dashboard</h1>
+        <div class="dashboard-header">
+            <h1>Admin Dashboard</h1>
+            <a href="logout.php" class="logout-btn">Logout</a>
+        </div>
         <button class="add-user-btn" onclick="showModal('add-user-modal')">Add New User</button>
         
         <?php if (isset($_SESSION['message'])): ?>
